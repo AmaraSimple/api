@@ -17,6 +17,10 @@ const Sobre = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media (max-width: 620px) {
+    width: 90%;
+  }
 `;
 
 const Title = styled.span`
