@@ -46,7 +46,7 @@ const NavItem = styled('li')<INavItemStyle>`
   font-weight: 500;
 
   &:hover {
-    color: #dddccc;
+    color: #333;
   }
 
   @media (max-width: 620px) {

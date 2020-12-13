@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   width: 100%;
-  height: 110vh;
+  height: 100vh;
 
   display: flex;
   justify-content: space-between;
@@ -47,7 +47,7 @@ const Title = styled.span`
   font-size: 49pt;
 
   @media (max-width: 620px) {
-    font-size: 38pt;
+    font-size: 35pt;
   }
 `;
 

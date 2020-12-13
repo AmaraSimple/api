@@ -45,6 +45,19 @@ const LinkR = styled(Link)`
   }
 `;
 
+const LinkRedirect = styled.a`
+  font-size: 16pt;
+  font-weight: 700px;
+
+  &:hover {
+    color: #dddccc;
+  }
+
+  @media (max-width: 620px) {
+    font-size: 12pt;
+  }
+`;
+
 const Copyright = styled.p`
   display: flex;
   text-align: center;
@@ -56,4 +69,4 @@ const Copyright = styled.p`
   }
 `;
 
-export { Container, Option, LinkR, Copyright, Menu };
+export { Container, Option, LinkR, LinkRedirect, Copyright, Menu };

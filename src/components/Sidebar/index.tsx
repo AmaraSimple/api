@@ -63,12 +63,6 @@ function Sidebar() {
                   &nbsp; Discord
                 </SideLinkRedirect>
               </SideItem>
-
-              <SideItem>
-                <FaEnvira />
-                &nbsp;
-                <SideLink to="/plataforma">Plataforma</SideLink>
-              </SideItem>
             </DrawerBody>
           </DrawerContent>
         </DrawerOverlay>

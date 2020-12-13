@@ -1,5 +1,12 @@
 import React from 'react';
-import { Container, Option, LinkR, Copyright, Menu } from './styled';
+import {
+  Container,
+  Option,
+  LinkR,
+  Copyright,
+  Menu,
+  LinkRedirect,
+} from './styled';
 
 import { FaDiscord, FaInstagram, FaComment, FaSync } from 'react-icons/fa';
 
@@ -10,21 +17,30 @@ function Footer() {
         <Menu>
           <Option>
             <FaDiscord /> &nbsp;
-            <LinkR to="!#">Discord</LinkR>
+            <LinkRedirect href="https://discord.gg/KaJVyTpBrR" target="_blank">
+              Discord
+            </LinkRedirect>
           </Option>
           <Option>
             <FaInstagram />
             &nbsp;
-            <LinkR to="!#">Instagram</LinkR>
+            <LinkRedirect
+              href="https://instagram.com/vintagestudio"
+              target="_blank"
+            >
+              Instagram
+            </LinkRedirect>
           </Option>
           <Option>
             <FaComment /> &nbsp;
-            <LinkR to="!#">Fórum</LinkR>
+            <LinkR to="/forum">Fórum</LinkR>
           </Option>
           <Option>
             <FaSync />
             &nbsp;
-            <LinkR to="!#">Status</LinkR>
+            <LinkRedirect href="https://status.com/status" target="_blank">
+              Status
+            </LinkRedirect>
           </Option>
         </Menu>
         <Copyright>

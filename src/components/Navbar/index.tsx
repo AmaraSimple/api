@@ -54,12 +54,12 @@ function Navbar() {
       </Nav>
       <Nav>
         <NavItem>
-          <ColorModeSwitcher />
-        </NavItem>
-        <NavItem visible>
           <FaSignInAlt />
           &nbsp;
-          <NavLink to="!#">ENTRAR</NavLink>
+          <NavLink to="/entrar">ENTRAR</NavLink>
+        </NavItem>
+        <NavItem>
+          <ColorModeSwitcher />
         </NavItem>
       </Nav>
     </Container>
