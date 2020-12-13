@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 110vh;
 
   display: flex;
   justify-content: space-between;
@@ -66,7 +66,8 @@ const Img = styled.img`
   width: 320px;
 
   border-radius: 160px;
-
+  border: 3px solid white;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
   @media (max-width: 620px) {
     width: 140px;
     border-radius: 70px;

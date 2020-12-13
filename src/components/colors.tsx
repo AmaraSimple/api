@@ -6,4 +6,5 @@ export default {
   fifth: '#D9ADAA',
 
   bg: '#0A0B16',
+  footer: '#111221',
 };
