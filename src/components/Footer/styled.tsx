@@ -30,6 +30,10 @@ const Option = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &:hover {
+    color: #dddccc;
+  }
 `;
 
 const LinkR = styled(Link)`
@@ -48,10 +52,6 @@ const LinkR = styled(Link)`
 const LinkRedirect = styled.a`
   font-size: 16pt;
   font-weight: 700px;
-
-  &:hover {
-    color: #dddccc;
-  }
 
   @media (max-width: 620px) {
     font-size: 12pt;

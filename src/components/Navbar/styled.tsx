@@ -46,7 +46,7 @@ const NavItem = styled('li')<INavItemStyle>`
   font-weight: 500;
 
   &:hover {
-    color: #333;
+    color: #ddd;
   }
 
   @media (max-width: 620px) {
@@ -60,6 +60,9 @@ const NavLinkDirect = styled.a``;
 
 const NavBrandImg = styled.img`
   width: 45px;
+
+  border: 1px solid #fff;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
 
   border-radius: 22.5px;
 `;
