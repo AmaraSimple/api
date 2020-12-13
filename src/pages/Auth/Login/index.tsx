@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container, Painel, Logo, Title, Infos, LinkR, Info } from './styled';
+import { Container, Painel, Logo, Title, Infos, LinkR } from './styled';
 import Footer from '../../../components/Footer';
 import AuthNavbar from '../../../components/AuthNavbar';
 import logo from '../../../assets/img/fav.png';
@@ -11,6 +11,7 @@ import {
   FormHelperText,
   Button,
 } from '@chakra-ui/react';
+import { FaSignInAlt } from 'react-icons/fa';
 
 function Login() {
   return (
@@ -34,13 +35,16 @@ function Login() {
           </FormControl>
 
           <Infos>
-            <Info>
-              <LinkR to="/cadastrar">Criar conta.</LinkR>
-            </Info>
-            <Info>
-              <Button>Entrar</Button>
-            </Info>
+            <LinkR style={{ marginRight: '30px' }} to="/cadastrar">
+              Criar conta
+            </LinkR>
+
+            <Button leftIcon={<FaSignInAlt />} size="md">
+              Entrar
+            </Button>
           </Infos>
+
+          <LinkR to="/esqueci-senha">Esqueci a senha</LinkR>
         </Painel>
       </Container>
       <Footer />

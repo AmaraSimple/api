@@ -10,7 +10,7 @@ import {
   Image,
 } from '@chakra-ui/react';
 import { FaBars } from 'react-icons/fa/index';
-import logo from '../../assets/img/logo.png';
+import logo from '../../assets/img/fav.png';
 import { FaEnvira, FaDiscord, FaHome, FaComment } from 'react-icons/fa';
 
 import { Container, SideLink, SideLinkRedirect, SideItem } from './styled';
@@ -39,7 +39,13 @@ function Sidebar() {
                 justifyContent: 'center',
               }}
             >
-              <Image src={logo} alt="logo vintage" width="120px" />
+              <Image
+                src={logo}
+                alt="logo vintage"
+                width="60px"
+                style={{ borderRadius: '30px', border: '3px solid #fff' }}
+              />
+              &nbsp;VintAGe Studio
             </DrawerHeader>
             <DrawerBody>
               <SideItem>

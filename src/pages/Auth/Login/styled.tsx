@@ -4,17 +4,20 @@ import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
 
   display: flex;
   justify-content: center;
 
   padding: 90px;
+
+  @media (max-width: 620px) {
+    padding: 10px;
+  }
 `;
 
 const Painel = styled.div`
   width: 40%;
-  padding: 60px;
+  padding: 40px;
 
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
   border-radius: 18px;
@@ -24,6 +27,13 @@ const Painel = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media (max-width: 620px) {
+    width: 100%;
+    padding: 10px;
+    margin-top: 80px;
+    margin-bottom: 30px;
+  }
 `;
 
 const Logo = styled.img`
@@ -47,10 +57,14 @@ const Infos = styled.div`
   align-items: center;
 
   margin-top: 25px;
+  margin-bottom: 15px;
 `;
 
-const Info = styled.div``;
+const LinkR = styled(Link)`
+  font-size: 14pt;
+  &:hover {
+    color: #ddd;
+  }
+`;
 
-const LinkR = styled(Link)``;
-
-export { Container, Painel, Logo, Title, Infos, LinkR, Info };
+export { Container, Painel, Logo, Title, Infos, LinkR };
