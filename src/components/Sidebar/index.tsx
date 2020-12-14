@@ -98,7 +98,7 @@ function Sidebar() {
               <SideItem visible={auth}>
                 <FaSignInAlt />
                 &nbsp;
-                <SideLink to="/sobre">Login</SideLink>
+                <SideLink to="/entrar">Login</SideLink>
               </SideItem>
             </DrawerBody>
           </DrawerContent>
