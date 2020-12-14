@@ -8,8 +8,9 @@ import Colors from './components/colors';
 const styles = {
   global: (props: any) => ({
     body: {
-      color: mode('gray.800', 'whiteAlpha.900')(props),
-      bg: mode('gray.100', Colors.bg)(props),
+      color: mode('#000', 'whiteAlpha.900')(props),
+      bg: mode('#D9ADAA', Colors.second)(props),
+      footer: mode('#fff', Colors.third)(props),
     },
   }),
 };

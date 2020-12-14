@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Title, Text, Sobre, Img } from './styled';
 import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import logo from '../../assets/img/fav.png';
 
 function About() {
@@ -22,6 +23,7 @@ function About() {
           </Text>
         </Sobre>
       </Container>
+      <Footer />
     </>
   );
 }

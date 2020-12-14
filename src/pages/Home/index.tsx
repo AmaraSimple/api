@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Container, SubTitle, Title, Right, Left, Img, Text } from './styled';
 import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import logo from '../../assets/img/fav.png';
 
 function Home() {
@@ -21,6 +22,7 @@ function Home() {
           <SubTitle>&copy; Copyright 2020 - Vintage Studio</SubTitle>
         </Right>
       </Container>
+      <Footer />
     </>
   );
 }

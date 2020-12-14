@@ -45,6 +45,9 @@ const Img = styled.img`
   width: 120px;
   border-radius: 60px;
   margin-right: 15px;
+
+  border: 2px solid #fff;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 `;
 
 export { Container, Title, Text, Sobre, Img };
