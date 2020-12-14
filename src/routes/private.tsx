@@ -17,7 +17,7 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({
         <Component {...props} />
       ) : (
         <Redirect
-          to={{ pathname: '/forum', state: { from: props.location } }}
+          to={{ pathname: '/entrar', state: { from: props.location } }}
         />
       )
     }

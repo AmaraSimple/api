@@ -15,7 +15,7 @@ const PublicRoute: React.FC<PublicRouteProps> = ({
     render={(props) =>
       isAuthenticated() ? (
         <Redirect
-          to={{ pathname: '/register', state: { from: props.location } }}
+          to={{ pathname: '/dashboard', state: { from: props.location } }}
         />
       ) : (
         <Component {...props} />

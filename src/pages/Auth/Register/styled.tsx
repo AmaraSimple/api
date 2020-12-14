@@ -81,6 +81,8 @@ const Info = styled.div`
 `;
 
 const LinkR = styled(Link)`
+  font-size: 14.5pt;
+
   &:hover {
     color: #ddd;
   }

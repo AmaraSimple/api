@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-interface IContainerNav {
-  background: any;
-}
-
-const Container = styled('div')<IContainerNav>`
+const Container = styled.div`
   width: 100%;
   height: 90px;
   line-height: 90px;

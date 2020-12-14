@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import logo from '../../assets/img/fav.png';
 import {
@@ -16,25 +16,48 @@ import {
   FaHome,
   FaComment,
   FaSignInAlt,
+  FaColumns,
 } from 'react-icons/fa';
 import Sidebar from '../Sidebar';
 
-const bg = localStorage.getItem('chakra-ui-color-mode');
+import { isAuthenticated } from '../../auth';
 
 function Navbar() {
+  const [auth, setAuth] = useState(false);
+
+  useEffect(() => {
+    function authVerify() {
+      if (isAuthenticated()) {
+        return setAuth(true);
+      } else if (isAuthenticated() === null) {
+        return setAuth(false);
+      } else {
+        return setAuth(false);
+      }
+    }
+    authVerify();
+  }, [auth]);
+
   return (
-    <Container background={bg}>
+    <Container>
       <Nav>
         <Sidebar />
         <NavItem>
           <NavBrandImg src={logo} alt="logo vintage" />
         </NavItem>
-        <NavItem>
+
+        <NavItem visible={auth === true ? false : true}>
+          <FaColumns />
+          &nbsp;
+          <NavLink to="/dashboard">DASHBOARD</NavLink>
+        </NavItem>
+
+        <NavItem visible={auth}>
           <FaHome />
           &nbsp;
           <NavLink to="/">HOME</NavLink>
         </NavItem>
-        <NavItem>
+        <NavItem visible={auth}>
           <FaComment />
           &nbsp;
           <NavLink to="/sobre">SOBRE</NavLink>
@@ -53,11 +76,12 @@ function Navbar() {
         </NavItem>
       </Nav>
       <Nav>
-        <NavItem>
+        <NavItem visible={auth}>
           <FaSignInAlt />
           &nbsp;
           <NavLink to="/entrar">ENTRAR</NavLink>
         </NavItem>
+
         <NavItem>
           <ColorModeSwitcher />
         </NavItem>

@@ -9,11 +9,16 @@ const Container = styled.div`
   }
 `;
 
-const SideItem = styled.div`
-  display: flex;
+interface ISideItemStyle {
+  visible?: boolean;
+}
+
+const SideItem = styled('div')<ISideItemStyle>`
   align-items: center;
 
   font-size: 16pt !important;
+
+  display: ${(props) => (props.visible ? ' none' : 'flex')};
 `;
 
 const SideLinkRedirect = styled.a``;

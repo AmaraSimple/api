@@ -38,7 +38,7 @@ const Text = styled.span`
   text-align: center;
 
   font-size: 15.9pt;
-  font-weight: 700;
+  font-weight: 500;
 `;
 
 const Img = styled.img`

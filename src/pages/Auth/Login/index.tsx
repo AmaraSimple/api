@@ -43,8 +43,6 @@ function Login() {
               Entrar
             </Button>
           </Infos>
-
-          <LinkR to="/esqueci-senha">Esqueci a senha</LinkR>
         </Painel>
       </Container>
       <Footer />

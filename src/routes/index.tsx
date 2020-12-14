@@ -9,6 +9,8 @@ import About from '../pages/About';
 import Login from '../pages/Auth/Login';
 import Register from '../pages/Auth/Register';
 
+import Dashboard from '../pages/Dashboard';
+
 const Router = () => (
   <BrowserRouter>
     <Switch>
@@ -17,6 +19,8 @@ const Router = () => (
 
       <Public path="/entrar" exact component={Login} />
       <Public path="/cadastrar" exact component={Register} />
+
+      <Private path="/dashboard" exact component={Dashboard} />
     </Switch>
   </BrowserRouter>
 );
