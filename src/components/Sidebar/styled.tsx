@@ -25,4 +25,9 @@ const SideLinkRedirect = styled.a``;
 
 const SideLink = styled(Link)``;
 
-export { Container, SideLink, SideItem, SideLinkRedirect };
+const ImgPerfil = styled.img`
+  width: 25px;
+  border-radius: 12.5px;
+`;
+
+export { Container, SideLink, SideItem, SideLinkRedirect, ImgPerfil };

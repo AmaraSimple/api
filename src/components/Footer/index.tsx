@@ -32,10 +32,6 @@ function Footer() {
             </LinkRedirect>
           </Option>
           <Option>
-            <FaComment /> &nbsp;
-            <LinkR to="/forum">Fórum</LinkR>
-          </Option>
-          <Option>
             <FaSync />
             &nbsp;
             <LinkRedirect href="https://status.com/status" target="_blank">

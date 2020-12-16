@@ -12,9 +12,6 @@ function AuthNavbar() {
 
           <LinkR to="/">&nbsp;Retorna</LinkR>
         </Item>
-        <Item>
-          <ColorModeSwitcher />
-        </Item>
       </Container>
     </>
   );

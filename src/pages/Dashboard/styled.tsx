@@ -23,13 +23,15 @@ const Painel = styled.div`
   align-items: center;
   flex-direction: column;
 
+  background: #06070e !important;
+
   @media (max-width: 620px) {
     width: 90%;
   }
 `;
 
 const Title = styled.span`
-  font-size: 19pt;
+  font-size: 16pt;
   text-align: center;
 
   margin-bottom: 40px;
