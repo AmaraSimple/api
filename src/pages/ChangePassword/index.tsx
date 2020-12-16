@@ -120,22 +120,34 @@ function ChangePassword(props: any) {
           <Title>Sua nova senha</Title>
 
           {alertStatus === 'warning' ? (
-            <Alert status="warning" style={{ marginBottom: '15px' }}>
+            <Alert
+              status="warning"
+              style={{ marginBottom: '15px', color: 'gray' }}
+            >
               <AlertIcon />
               {text}
             </Alert>
           ) : alertStatus === 'error' ? (
-            <Alert status="error" style={{ marginBottom: '15px' }}>
+            <Alert
+              status="error"
+              style={{ marginBottom: '15px', color: 'gray' }}
+            >
               <AlertIcon />
               {text}
             </Alert>
           ) : alertStatus === 'success' ? (
-            <Alert status="success" style={{ marginBottom: '15px' }}>
+            <Alert
+              status="success"
+              style={{ marginBottom: '15px', color: 'gray' }}
+            >
               <AlertIcon />
               {text}
             </Alert>
           ) : (
-            <Alert status="info" style={{ marginBottom: '15px' }}>
+            <Alert
+              status="info"
+              style={{ marginBottom: '15px', color: 'gray' }}
+            >
               <AlertIcon />
               {text}
             </Alert>
@@ -172,7 +184,12 @@ function ChangePassword(props: any) {
               <FormHelperText>Confirmer a nova senha.</FormHelperText>
             </FormControl>
             <Infos>
-              <Button leftIcon={<FaKey />} size="md" type="submit">
+              <Button
+                leftIcon={<FaKey />}
+                size="md"
+                type="submit"
+                colorScheme="#0A0B16"
+              >
                 Mudar Senha
               </Button>
             </Infos>
