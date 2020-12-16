@@ -27,6 +27,7 @@ import {
   Alert,
   AlertIcon,
 } from '@chakra-ui/react';
+import { FaRegistered } from 'react-icons/fa';
 
 function Register(props: any) {
   const [username, setUsername] = useState('');
@@ -117,17 +118,26 @@ function Register(props: any) {
           </Header>
 
           {alertStatus === 'warning' ? (
-            <Alert status="warning" style={{ marginBottom: '15px' }}>
+            <Alert
+              status="warning"
+              style={{ marginBottom: '15px', color: 'gray' }}
+            >
               <AlertIcon />
               {text}
             </Alert>
           ) : alertStatus === 'error' ? (
-            <Alert status="error" style={{ marginBottom: '15px' }}>
+            <Alert
+              status="error"
+              style={{ marginBottom: '15px', color: 'gray' }}
+            >
               <AlertIcon />
               {text}
             </Alert>
           ) : (
-            <Alert status="info" style={{ marginBottom: '15px' }}>
+            <Alert
+              status="info"
+              style={{ marginBottom: '15px', color: 'gray' }}
+            >
               <AlertIcon />
               {text}
             </Alert>
@@ -217,7 +227,13 @@ function Register(props: any) {
               <LinkR to="/entrar" style={{ marginRight: '30px' }}>
                 Já tenho uma conta
               </LinkR>
-              <Button type="submit">Cadastrar</Button>
+              <Button
+                type="submit"
+                leftIcon={<FaRegistered />}
+                colorScheme="#0A0B16"
+              >
+                Cadastrar
+              </Button>
             </Info>
           </form>
         </Painel>

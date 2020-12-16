@@ -105,12 +105,18 @@ function ConfirmEmail(props: any) {
           <Title>Confirme seu E-mail</Title>
 
           {alertStatus === 'warning' ? (
-            <Alert status="warning" style={{ marginBottom: '15px' }}>
+            <Alert
+              status="warning"
+              style={{ marginBottom: '15px', color: 'gray' }}
+            >
               <AlertIcon />
               {text}
             </Alert>
           ) : alertStatus === 'error' ? (
-            <Alert status="error" style={{ marginBottom: '15px' }}>
+            <Alert
+              status="error"
+              style={{ marginBottom: '15px', color: 'gray' }}
+            >
               <AlertIcon />
               {text}&nbsp;
               {sendEmail ? (
@@ -122,12 +128,18 @@ function ConfirmEmail(props: any) {
               )}
             </Alert>
           ) : alertStatus === 'success' ? (
-            <Alert status="success" style={{ marginBottom: '15px' }}>
+            <Alert
+              status="success"
+              style={{ marginBottom: '15px', color: 'gray' }}
+            >
               <AlertIcon />
               {text}
             </Alert>
           ) : (
-            <Alert status="info" style={{ marginBottom: '15px' }}>
+            <Alert
+              status="info"
+              style={{ marginBottom: '15px', color: 'gray' }}
+            >
               <AlertIcon />
               {text}
             </Alert>
@@ -156,7 +168,12 @@ function ConfirmEmail(props: any) {
             </FormControl>
 
             <Infos>
-              <Button leftIcon={<FaKey />} size="md" type="submit">
+              <Button
+                leftIcon={<FaKey />}
+                size="md"
+                type="submit"
+                colorScheme="#0A0B16"
+              >
                 Ativar E-mail
               </Button>
             </Infos>

@@ -17,6 +17,7 @@ import { FaSignInAlt } from 'react-icons/fa';
 import api from '../../../api';
 import { login } from '../../../auth';
 import { Loading } from '../../../components/Animation';
+import colors from '../../../components/colors';
 
 function Login(props: any) {
   const [username, setUsername] = useState('');
@@ -114,12 +115,18 @@ function Login(props: any) {
           <Title>Acessa sua Conta</Title>
 
           {alertStatus === 'warning' ? (
-            <Alert status="warning" style={{ marginBottom: '15px' }}>
+            <Alert
+              status="warning"
+              style={{ marginBottom: '15px', color: 'gray' }}
+            >
               <AlertIcon />
               {text}
             </Alert>
           ) : alertStatus === 'error' ? (
-            <Alert status="error" style={{ marginBottom: '15px' }}>
+            <Alert
+              status="error"
+              style={{ marginBottom: '15px', color: 'gray' }}
+            >
               <AlertIcon />
               {text} &nbsp;
               {sendEmail ? (
@@ -131,7 +138,10 @@ function Login(props: any) {
               )}
             </Alert>
           ) : (
-            <Alert status="info" style={{ marginBottom: '15px' }}>
+            <Alert
+              status="info"
+              style={{ marginBottom: '15px', color: 'gray' }}
+            >
               <AlertIcon />
               {text} &nbsp;{' '}
               {sendEmail ? (
@@ -180,7 +190,12 @@ function Login(props: any) {
                 Criar conta
               </LinkR>
 
-              <Button leftIcon={<FaSignInAlt />} size="md" type="submit">
+              <Button
+                leftIcon={<FaSignInAlt />}
+                size="md"
+                type="submit"
+                colorScheme="Blue.400"
+              >
                 Entrar
               </Button>
             </Infos>
