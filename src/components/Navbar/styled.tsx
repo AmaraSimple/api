@@ -63,4 +63,17 @@ const NavBrandImg = styled.img`
   border-radius: 22.5px;
 `;
 
-export { Container, Nav, NavItem, NavLink, NavBrandImg, NavLinkDirect };
+const ImgPerfil = styled.img`
+  width: 38px;
+  border-radius: 19px;
+`;
+
+export {
+  Container,
+  Nav,
+  NavItem,
+  NavLink,
+  NavBrandImg,
+  NavLinkDirect,
+  ImgPerfil,
+};

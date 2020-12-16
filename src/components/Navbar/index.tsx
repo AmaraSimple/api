@@ -8,6 +8,7 @@ import {
   NavItem,
   NavBrandImg,
   NavLinkDirect,
+  ImgPerfil,
 } from './styled';
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
 import {
@@ -16,14 +17,16 @@ import {
   FaHome,
   FaComment,
   FaSignInAlt,
+  FaSignOutAlt,
   FaColumns,
 } from 'react-icons/fa';
 import Sidebar from '../Sidebar';
 
-import { isAuthenticated } from '../../auth';
+import { isAuthenticated, logout } from '../../auth';
 
 function Navbar() {
   const [auth, setAuth] = useState(false);
+  //const [photo, setPhoto] = useState('');
 
   useEffect(() => {
     function authVerify() {
@@ -35,8 +38,9 @@ function Navbar() {
         return setAuth(false);
       }
     }
+
     authVerify();
-  }, [auth]);
+  }, []);
 
   return (
     <Container>
@@ -82,8 +86,21 @@ function Navbar() {
           <NavLink to="/entrar">ENTRAR</NavLink>
         </NavItem>
 
-        <NavItem>
-          <ColorModeSwitcher />
+        <NavItem visible={auth === true ? false : true}>
+          <ImgPerfil
+            src={`${localStorage.getItem('photo-vintage-studio')}`}
+            alt="photo perfil"
+          />
+          &nbsp;
+          {localStorage.getItem('name-vintage-studio')}
+        </NavItem>
+
+        <NavItem visible={auth === true ? false : true}>
+          <FaSignOutAlt />
+          &nbsp;
+          <NavLink to="/entrar" onClick={() => logout()}>
+            SAIR
+          </NavLink>
         </NavItem>
       </Nav>
     </Container>

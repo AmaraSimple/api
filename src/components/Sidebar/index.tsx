@@ -8,19 +8,27 @@ import {
   DrawerHeader,
   DrawerBody,
   Image,
+  Divider,
 } from '@chakra-ui/react';
 import { FaBars } from 'react-icons/fa/index';
 import logo from '../../assets/img/fav.png';
 import {
   FaEnvira,
+  FaSignOutAlt,
   FaDiscord,
   FaHome,
   FaComment,
   FaSignInAlt,
 } from 'react-icons/fa';
-import { isAuthenticated } from '../../auth';
+import { isAuthenticated, logout } from '../../auth';
 
-import { Container, SideLink, SideLinkRedirect, SideItem } from './styled';
+import {
+  Container,
+  SideLink,
+  SideLinkRedirect,
+  SideItem,
+  ImgPerfil,
+} from './styled';
 
 function Sidebar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -95,10 +103,29 @@ function Sidebar() {
                   &nbsp; Discord
                 </SideLinkRedirect>
               </SideItem>
+
+              <Divider style={{ marginBottom: '5px', marginTop: '5px' }} />
+
               <SideItem visible={auth}>
                 <FaSignInAlt />
                 &nbsp;
                 <SideLink to="/entrar">Login</SideLink>
+              </SideItem>
+
+              <SideItem visible={auth === true ? false : true}>
+                <ImgPerfil
+                  src={`${localStorage.getItem('photo-vintage-studio')}`}
+                  alt="photo perfil"
+                />
+                &nbsp;
+                {localStorage.getItem('name-vintage-studio')}
+              </SideItem>
+              <SideItem visible={auth === true ? false : true}>
+                <FaSignOutAlt />
+                &nbsp;
+                <SideLink to="/entrar" onClick={() => logout()}>
+                  Sair
+                </SideLink>
               </SideItem>
             </DrawerBody>
           </DrawerContent>

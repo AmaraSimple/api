@@ -21,6 +21,8 @@ const Painel = styled.div`
 
   margin-top: 80px;
 
+  background: #06070e !important;
+
   @media (max-width: 620px) {
     width: 90%;
   }
