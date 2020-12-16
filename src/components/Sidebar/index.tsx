@@ -49,7 +49,7 @@ function Sidebar() {
 
   return (
     <Container>
-      <Button onClick={onOpen} leftIcon={<FaBars />}>
+      <Button onClick={onOpen} leftIcon={<FaBars />} colorScheme="#0A0B16">
         Menu
       </Button>
       <Drawer
@@ -57,6 +57,7 @@ function Sidebar() {
         onClose={onClose}
         isOpen={isOpen}
         isFullHeight={true}
+        colorScheme="#0A0B16"
       >
         <DrawerOverlay>
           <DrawerContent>
