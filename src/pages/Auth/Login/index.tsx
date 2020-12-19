@@ -38,7 +38,6 @@ function Login(props: any) {
       setAlertStatus('info');
 
       const response = await api.post('/login', { username, password });
-      console.log(response);
       setText('Verificando integradades das informações.');
 
       if (response.data.error === '03') {

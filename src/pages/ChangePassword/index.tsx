@@ -56,17 +56,17 @@ function ChangePassword(props: any) {
       } else if (response.data.error === '10') {
         setAlertStatus('error');
         setText('Token atual está invalido.');
-        setPassword('');
-        setConfirmPassword('');
 
         setTimeout(() => {
           setText('Redirecionando para página de recuperação!');
-          setLoading(false);
         }, 2000);
 
         setTimeout(() => {
           props.history.push('/esqueci-senha');
-        }, 6500);
+          setPassword('');
+          setConfirmPassword('');
+          setLoading(false);
+        }, 4500);
         return;
       } else if (response.data.error === '08') {
         setAlertStatus('error');

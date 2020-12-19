@@ -1,48 +1,60 @@
 import styled from 'styled-components';
-import colors from '../../components/colors';
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
 
+  padding: 120px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+
+  @media (max-width: 620px) {
+    align-items: center;
+    margin-top: 15px;
+  }
 `;
 
-const Painel = styled.div`
-  width: 60%;
-  padding: 30px;
+const ButtonStyled = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  width: 180px;
+  height: 60px;
+
+  border-radius: 8px;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 18px;
-  border: 2px solid ${colors.third};
 
+  color: #fff;
+  background: #2ecc71;
+  border: #181a2e solid 1px;
+
+  &:hover {
+    background: #28b463;
+  }
+`;
+
+const ContainerDirect = styled.form`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+`;
+
+const Right = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
-  background: #06070e !important;
-
-  @media (max-width: 620px) {
-    width: 90%;
-  }
+  margin-left: 15px;
 `;
 
-const Title = styled.span`
-  font-size: 16pt;
-  text-align: center;
-
-  margin-bottom: 40px;
-
-  @media (max-width: 620px) {
-    font-size: 14pt;
-  }
+const Left = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
-const Ip = styled.span`
-  margin-top: 40px;
-`;
-
-export { Container, Painel, Title, Ip };
+export { Container, ButtonStyled, ContainerDirect, Right, Left };

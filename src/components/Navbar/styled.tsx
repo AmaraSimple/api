@@ -15,6 +15,9 @@ const Container = styled.div`
 
   position: fixed;
   top: 0;
+
+  background: #0c0e1b !important;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 `;
 
 const Nav = styled.ul`
