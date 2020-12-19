@@ -15,10 +15,10 @@ function About() {
             Sobre
           </Title>
           <Text>
-            Somos uma equipe indepedente, que busca trazer uma nova mentalidade
+            Somos uma equipe independente, que busca trazer uma nova mentalidade
             e funcionalidade que aprimorem a jogabilidade, onde o foco principal
             é no game Grand Theft Auto da Rockstar Games, inicialmente na
-            Plataforma Multi Theft Auto e posteriomente em outras por exemplo
+            Plataforma Multi Theft Auto e posteriormente em outras por exemplo
             FIVEM e SA-MP.
           </Text>
         </Sobre>

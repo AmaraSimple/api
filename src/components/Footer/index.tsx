@@ -14,33 +14,9 @@ function Footer() {
   return (
     <>
       <Container>
-        <Menu>
-          <Option>
-            <FaDiscord /> &nbsp;
-            <LinkRedirect href="https://discord.gg/KaJVyTpBrR" target="_blank">
-              Discord
-            </LinkRedirect>
-          </Option>
-          <Option>
-            <FaInstagram />
-            &nbsp;
-            <LinkRedirect
-              href="https://instagram.com/vintagestudio"
-              target="_blank"
-            >
-              Instagram
-            </LinkRedirect>
-          </Option>
-          <Option>
-            <FaSync />
-            &nbsp;
-            <LinkRedirect href="https://status.com/status" target="_blank">
-              Status
-            </LinkRedirect>
-          </Option>
-        </Menu>
         <Copyright>
-          &copy;{new Date().getFullYear()} Copyright - Vintage Studio
+          &copy;{new Date().getFullYear()} Copyright Vintage Studio - Todos
+          Diretos Reservados.
         </Copyright>
       </Container>
     </>

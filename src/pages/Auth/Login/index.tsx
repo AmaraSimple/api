@@ -38,7 +38,6 @@ function Login(props: any) {
       setAlertStatus('info');
 
       const response = await api.post('/login', { username, password });
-      console.log(response);
       setText('Verificando integradades das informações.');
 
       if (response.data.error === '03') {
@@ -194,7 +193,7 @@ function Login(props: any) {
                 leftIcon={<FaSignInAlt />}
                 size="md"
                 type="submit"
-                colorScheme="Blue.400"
+                colorScheme="green"
               >
                 Entrar
               </Button>

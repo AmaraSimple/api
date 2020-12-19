@@ -6,6 +6,7 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   padding: 20px;
+  margin-top: 40px;
 
   display: flex;
   justify-content: center;
@@ -17,15 +18,14 @@ const Painel = styled.div`
   padding: 40px;
 
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 18px;
-  border: 2.5px solid ${colors.third} !important;
+  border-radius: 4px;
 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
-  background: #06070e !important;
+  background: #0c0e1b !important;
 
   @media (max-width: 620px) {
     width: 100%;

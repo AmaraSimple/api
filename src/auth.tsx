@@ -5,6 +5,10 @@ const login = (token: string) => {
   localStorage.setItem(TOKEN_KEY, token);
 };
 const logout = () => {
+  localStorage.removeItem('username-vintage-studio');
+  localStorage.removeItem('email-vintage-studio');
+  localStorage.removeItem('photo-vintage-studio');
+  localStorage.removeItem('name-vintage-studio');
   return localStorage.removeItem(TOKEN_KEY);
 };
 

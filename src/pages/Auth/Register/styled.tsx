@@ -16,13 +16,10 @@ const Painel = styled.div`
   padding: 30px;
 
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
-  border: 3px solid ${colors.third};
+  border-radius: 4px;
 
   margin-top: 80px;
-
-  background: #06070e !important;
-
+  background: #0c0e1b !important;
   @media (max-width: 620px) {
     width: 90%;
   }
