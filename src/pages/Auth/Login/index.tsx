@@ -193,7 +193,7 @@ function Login(props: any) {
                 leftIcon={<FaSignInAlt />}
                 size="md"
                 type="submit"
-                colorScheme="Blue.400"
+                colorScheme="green"
               >
                 Entrar
               </Button>

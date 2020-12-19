@@ -1,10 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Container,
   ButtonStyled,
   Left,
   Right,
   ContainerDirect,
+  LeftContent,
+  RightContent,
+  New,
+  NewTitle,
+  NewHeader,
+  NewImg,
+  NewMsg,
+  NewNameUser,
+  NewImgUser,
+  Copyright,
+  UserPersonStatus,
+  UserImg,
+  UserInfo,
+  UserInfos,
+  UserPersonName,
+  UserPersonInfo,
+  UserName,
 } from './styled';
 import {
   MCloseButton,
@@ -16,7 +33,7 @@ import {
   MContainer,
   MButton,
 } from '../../components/Modal';
-import { FaCheckCircle, FaPlusSquare } from 'react-icons/fa';
+import { FaPlusSquare, FaCircle } from 'react-icons/fa';
 import {
   useDisclosure,
   FormControl,
@@ -32,6 +49,12 @@ import { getToken, logout } from '../../auth';
 import api from '../../api';
 import { Loading } from '../../components/Animation';
 
+interface IPerson {
+  login?: boolean;
+  name?: string;
+  surname?: string;
+}
+
 function Dashboard(props: any) {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const toast = useToast();
@@ -45,11 +68,40 @@ function Dashboard(props: any) {
   const [discordid, setDiscordid] = useState('');
   const [sex, setSex] = useState('');
 
-  const [text, setText] = useState('');
   const [loading, setLoading] = useState(false);
-  const [type, setType] = useState('');
+
+  const [namePerson, setNamePerson] = useState('');
+  const [surnamePerson, setSurnamePerson] = useState('');
+  const [loginPerson, setLoginPerson] = useState(false);
 
   const username = localStorage.getItem('username-vintage-studio') || null;
+
+  useEffect(() => {
+    async function infoPerson() {
+      try {
+        const response = await api.get(`/vintageroleplay/${username}`, {
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+            username: username,
+          },
+        });
+
+        setSurnamePerson('');
+        setLoginPerson(false);
+        setNamePerson('');
+
+        if (response.data.error === '3') return;
+        else if (response.data.error === '14') return;
+        else if (response.data.error === '15') return;
+
+        setSurnamePerson(response.data.surname);
+        setLoginPerson(response.data.login);
+        return setNamePerson(response.data.name);
+      } catch (e) {}
+    }
+
+    infoPerson();
+  }, [loading]);
 
   const onOpenRegister = () => {
     if (registerOpen === false) {
@@ -64,15 +116,6 @@ function Dashboard(props: any) {
 
   async function handleSubmit(e: any) {
     e.preventDefault();
-    /*console.log({
-      servidor: servidor.length,
-      name: name.length,
-      surname: surname.length,
-      password: password.length,
-      serial: serial.length,
-      discordid: discordid.length,
-      sex: sex.length,
-    });*/
 
     if (username !== null && username.length !== 0) {
       if (
@@ -186,10 +229,92 @@ function Dashboard(props: any) {
     <>
       <Navbar />
       <Container>
-        <ButtonStyled onClick={onOpen}>
-          <FaPlusSquare />
-          &nbsp;Novo Personagem
-        </ButtonStyled>
+        <LeftContent>
+          <NewTitle>Feed de Noticias</NewTitle>
+          <New>
+            <NewHeader>
+              <NewImgUser
+                src="https://www.flaticon.com/svg/static/icons/svg/3237/3237472.svg"
+                alt="user img vintage"
+              />
+              <NewNameUser>Daniel Souza</NewNameUser>
+            </NewHeader>
+            <NewImg
+              src="https://i.pinimg.com/originals/bf/82/f6/bf82f6956a32819af48c2572243e8286.jpg"
+              alt="img background new"
+            />
+            <NewMsg>
+              Essa mensagem é teste, só para ver como vai ficar, a mensagem com
+              a imagem a cima.
+            </NewMsg>
+          </New>
+          <New>
+            <NewHeader>
+              <NewImgUser
+                src="https://www.flaticon.com/svg/static/icons/svg/3237/3237472.svg"
+                alt="user img vintage"
+              />
+              <NewNameUser>Daniel Souza</NewNameUser>
+            </NewHeader>
+            <NewImg
+              src="https://static.wixstatic.com/media/71a6c2_bddf371813b546a7834c252183473600~mv2.png"
+              alt="img background new"
+            />
+            <NewMsg>
+              Essa mensagem é teste, só para ver como vai ficar, a mensagem com
+              a imagem a cima.
+            </NewMsg>
+          </New>
+        </LeftContent>
+        <RightContent>
+          <ButtonStyled onClick={onOpen}>
+            <FaPlusSquare />
+            &nbsp;Novo Personagem
+          </ButtonStyled>
+
+          <UserInfos>
+            <UserInfo>
+              <UserImg
+                src={`${localStorage.getItem('photo-vintage-studio')}`}
+                alt="vintage user img"
+              />
+              <UserName>{localStorage.getItem('name-vintage-studio')}</UserName>
+            </UserInfo>
+          </UserInfos>
+
+          <UserPersonInfo>
+            Meus Personagem
+            {namePerson === '' ? (
+              <UserPersonName>Nenhum personagem criado</UserPersonName>
+            ) : (
+              <>
+                <UserPersonName>
+                  {namePerson} {surnamePerson}
+                </UserPersonName>
+                {loginPerson ? (
+                  <>
+                    <UserPersonStatus color="green">
+                      <FaCircle size={12} />
+                      &nbsp;Online
+                    </UserPersonStatus>
+                  </>
+                ) : (
+                  <>
+                    <UserPersonStatus color="red">
+                      <FaCircle size={12} />
+                      &nbsp;Offline
+                    </UserPersonStatus>
+                  </>
+                )}
+              </>
+            )}
+          </UserPersonInfo>
+
+          <Copyright>
+            &copy;{new Date().getFullYear()} Copyright Vintage Studio - Todos
+            direitos reservados.
+          </Copyright>
+        </RightContent>
       </Container>
 
       <MContainer
@@ -396,17 +521,3 @@ function Dashboard(props: any) {
 }
 
 export default Dashboard;
-
-/*
-      {servidor === 'vintageroleplay' ? (
-
-      ) : (
-        toast({
-          position: 'top-left',
-          title: 'Servidor não selecionado.',
-          description: `Você precisa selecionar o servidor.`,
-          status: 'error',
-          duration: 9000,
-          isClosable: true,
-        })
-      )}*/

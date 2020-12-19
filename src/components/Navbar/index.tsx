@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import logo from '../../assets/img/fav.png';
+import logo from '../../assets/img/logo.png';
 import {
   Container,
   Nav,
@@ -84,15 +84,6 @@ function Navbar() {
           <FaSignInAlt />
           &nbsp;
           <NavLink to="/entrar">ENTRAR</NavLink>
-        </NavItem>
-
-        <NavItem visible={auth === true ? false : true}>
-          <ImgPerfil
-            src={`${localStorage.getItem('photo-vintage-studio')}`}
-            alt="photo perfil"
-          />
-          &nbsp;
-          {localStorage.getItem('name-vintage-studio')}
         </NavItem>
 
         <NavItem visible={auth === true ? false : true}>

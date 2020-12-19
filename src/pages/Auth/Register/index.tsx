@@ -230,7 +230,7 @@ function Register(props: any) {
               <Button
                 type="submit"
                 leftIcon={<FaRegistered />}
-                colorScheme="#0A0B16"
+                colorScheme="green"
               >
                 Cadastrar
               </Button>

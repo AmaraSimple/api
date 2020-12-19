@@ -136,7 +136,7 @@ function PasswordRemeber(props: any) {
                 leftIcon={<FaKey />}
                 size="md"
                 type="submit"
-                colorScheme="#0A0B16"
+                colorScheme="green"
               >
                 Recuperar
               </Button>

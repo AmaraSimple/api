@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   width: 100%;
-  height: 90px;
-  line-height: 90px;
+  height: 65px;
+  line-height: 65px;
 
   display: flex;
   align-items: center;
@@ -58,12 +58,7 @@ const NavLink = styled(Link)``;
 const NavLinkDirect = styled.a``;
 
 const NavBrandImg = styled.img`
-  width: 45px;
-
-  border: 1px solid #fff;
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
-
-  border-radius: 22.5px;
+  width: 90px;
 `;
 
 const ImgPerfil = styled.img`

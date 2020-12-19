@@ -3,14 +3,18 @@ import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   width: 100%;
-  height: 40px;
-  line-height: 40px;
+  height: 60px;
+  line-height: 60px;
+  position: fixed;
+  bottom: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
-
   flex-direction: column;
+
+  background: #0c0e1b !important;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 `;
 
 const Menu = styled.div`
@@ -19,6 +23,8 @@ const Menu = styled.div`
   justify-content: space-between;
   width: 60%;
   padding: 40px;
+
+  background: #0c0e1b !important;
 
   @media (max-width: 620px) {
     width: 100%;
