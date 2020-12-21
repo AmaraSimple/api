@@ -142,6 +142,14 @@ const ReadySyncUpdateData = styled.div`
 
 const Right = styled.div`
   width: 100%;
+  height: 100vh;
+
+  padding: 25px;
+  border-radius: 4px;
+  margin-left: 15px;
+
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  background: #0c0e1b !important;
 `;
 
 export {

@@ -16,7 +16,15 @@ import {
   MoneyCoins,
   ReadySyncUpdateData,
 } from './styled';
-import { Progress, Spinner, Avatar } from '@chakra-ui/react';
+import {
+  Progress,
+  Spinner,
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+} from '@chakra-ui/react';
 import {
   FaCircle,
   FaHeart,
@@ -30,10 +38,10 @@ import {
   FaCreditCard,
   FaCoins,
 } from 'react-icons/fa';
-
 import Navbar from '../../components/Navbar';
 import api from '../../api';
 import { getToken } from '../../auth';
+import ButtonCreatePerson from '../../components/ModalCreatePerson';
 
 function UCP(props: any) {
   const [person, setPerson] = useState({
@@ -50,15 +58,21 @@ function UCP(props: any) {
     name: '',
     surname: '',
   });
-  const [update, setUpdate] = useState(true);
 
   function ReturnDataInterval() {
-    setInterval(() => {
-      return setUpdate(!update);
+    setInterval(async () => {
+      const response = await api.get('/vintageroleplay/1', {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+          username: `${localStorage.getItem('username-vintage-studio')}`,
+        },
+      });
+
+      setPerson(response.data);
+
+      return;
     }, 120000);
   }
-
-  ReturnDataInterval();
 
   useEffect(() => {
     async function getInfoPerson() {
@@ -75,9 +89,9 @@ function UCP(props: any) {
         return;
       } catch (e) {}
     }
-
+    ReturnDataInterval();
     getInfoPerson();
-  }, [update]);
+  }, []);
 
   return (
     <>
@@ -182,7 +196,32 @@ function UCP(props: any) {
             </ReadySyncUpdateData>
           </Person>
         </Left>
-        <Right></Right>
+        <Right>
+          {`${localStorage.getItem('nameperson-vintage-studio')}` ? (
+            ''
+          ) : (
+            <ButtonCreatePerson />
+          )}
+          <Tabs variant="enclosed" size="lg" isFitted>
+            <TabList>
+              <Tab color="teal">Mudar Senha</Tab>
+              <Tab color="teal">Loja</Tab>
+              <Tab color="teal">Exclusão de Conta</Tab>
+            </TabList>
+
+            <TabPanels>
+              <TabPanel>
+                <p>one!</p>
+              </TabPanel>
+              <TabPanel>
+                <p>two!</p>
+              </TabPanel>
+              <TabPanel>
+                <p>three!</p>
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
+        </Right>
       </Container>
     </>
   );
