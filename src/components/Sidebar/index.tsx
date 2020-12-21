@@ -13,7 +13,7 @@ import {
 import { FaBars } from 'react-icons/fa/index';
 import logo from '../../assets/img/fav.png';
 import {
-  FaEnvira,
+  FaUserAstronaut,
   FaSignOutAlt,
   FaDiscord,
   FaHome,
@@ -83,6 +83,11 @@ function Sidebar() {
                 <SideLink to="/dashboard">Dashboard</SideLink>
               </SideItem>
 
+              <SideItem visible={auth === true ? false : true}>
+                <FaUserAstronaut /> &nbsp;
+                <SideLink to="/dashboard">UCP</SideLink>
+              </SideItem>
+
               <SideItem visible={auth}>
                 <FaHome /> &nbsp;
                 <SideLink to="/">Home</SideLink>
@@ -105,22 +110,12 @@ function Sidebar() {
                 </SideLinkRedirect>
               </SideItem>
 
-              <Divider style={{ marginBottom: '5px', marginTop: '5px' }} />
-
               <SideItem visible={auth}>
                 <FaSignInAlt />
                 &nbsp;
                 <SideLink to="/entrar">Login</SideLink>
               </SideItem>
 
-              <SideItem visible={auth === true ? false : true}>
-                <ImgPerfil
-                  src={`${localStorage.getItem('photo-vintage-studio')}`}
-                  alt="photo perfil"
-                />
-                &nbsp;
-                {localStorage.getItem('name-vintage-studio')}
-              </SideItem>
               <SideItem visible={auth === true ? false : true}>
                 <FaSignOutAlt />
                 &nbsp;

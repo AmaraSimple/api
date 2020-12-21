@@ -22,6 +22,8 @@ import {
   UserPersonName,
   UserPersonInfo,
   UserName,
+  UserNames,
+  UserUsername,
 } from './styled';
 import {
   MCloseButton,
@@ -48,12 +50,6 @@ import Navbar from '../../components/Navbar';
 import { getToken, logout } from '../../auth';
 import api from '../../api';
 import { Loading } from '../../components/Animation';
-
-interface IPerson {
-  login?: boolean;
-  name?: string;
-  surname?: string;
-}
 
 function Dashboard(props: any) {
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -278,7 +274,12 @@ function Dashboard(props: any) {
                 src={`${localStorage.getItem('photo-vintage-studio')}`}
                 alt="vintage user img"
               />
-              <UserName>{localStorage.getItem('name-vintage-studio')}</UserName>
+              <UserNames>
+                <UserName>
+                  {localStorage.getItem('name-vintage-studio')}
+                </UserName>
+                <UserUsername>{username}</UserUsername>
+              </UserNames>
             </UserInfo>
           </UserInfos>
 

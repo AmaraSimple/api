@@ -10,9 +10,11 @@ import Login from '../pages/Auth/Login';
 import Register from '../pages/Auth/Register';
 
 import Dashboard from '../pages/Dashboard';
+import UCP from '../pages/UCP';
 import PasswordRemeber from '../pages/PasswordRemeber';
 import ChangePassword from '../pages/ChangePassword';
 import ConfirmEmail from '../pages/ConfirmEmail';
+import { updateClassExpression } from 'typescript';
 
 const Router = () => (
   <BrowserRouter>
@@ -28,6 +30,7 @@ const Router = () => (
       <Public path="/confirmar/:token" exact component={ConfirmEmail} />
 
       <Private path="/dashboard" exact component={Dashboard} />
+      <Private path="/ucp" exact component={UCP} />
     </Switch>
   </BrowserRouter>
 );

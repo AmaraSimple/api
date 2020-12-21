@@ -85,7 +85,17 @@ const UserImg = styled.img`
   margin-right: 15px;
 `;
 
+const UserNames = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const UserName = styled.span``;
+
+const UserUsername = styled.span`
+  font-size: 13pt;
+  font-weight: 700;
+`;
 
 const UserPersonInfo = styled.div`
   margin-top: 25px;
@@ -200,4 +210,6 @@ export {
   UserPersonName,
   UserPersonStatus,
   Copyright,
+  UserUsername,
+  UserNames,
 };

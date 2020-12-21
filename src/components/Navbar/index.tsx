@@ -12,13 +12,13 @@ import {
 } from './styled';
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
 import {
+  FaUserAstronaut,
   FaEnvira,
   FaDiscord,
   FaHome,
   FaComment,
   FaSignInAlt,
   FaSignOutAlt,
-  FaColumns,
 } from 'react-icons/fa';
 import Sidebar from '../Sidebar';
 
@@ -51,9 +51,15 @@ function Navbar() {
         </NavItem>
 
         <NavItem visible={auth === true ? false : true}>
-          <FaColumns />
+          <FaHome />
           &nbsp;
           <NavLink to="/dashboard">DASHBOARD</NavLink>
+        </NavItem>
+
+        <NavItem visible={auth === true ? false : true}>
+          <FaUserAstronaut />
+          &nbsp;
+          <NavLink to="/ucp">UCP</NavLink>
         </NavItem>
 
         <NavItem visible={auth}>
