@@ -41,7 +41,7 @@ const NavItem = styled('li')<INavItemStyle>`
   justify-content: center;
   align-items: center;
 
-  font-size: 12pt;
+  font-size: 10.5pt;
   font-weight: 500;
 
   &:hover {
