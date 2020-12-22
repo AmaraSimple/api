@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { FaCircle } from 'react-icons/fa';
+import { Button, useDisclosure } from '@chakra-ui/react';
+
 import {
   Container,
   LeftContent,
@@ -20,14 +23,63 @@ import {
   UserName,
   UserNames,
   UserUsername,
+  IrUCP,
 } from './styled';
-
-import { FaPlusSquare, FaCircle } from 'react-icons/fa';
-
 import Navbar from '../../components/Navbar';
 import ButtonCreatePerson from '../../components/ModalCreatePerson';
+import { getToken } from '../../auth';
+import api from '../../api';
 
 function Dashboard(props: any) {
+  const [userExist, setUserExist] = useState(false);
+  const [update, setUpdate] = useState(false);
+  const [authorization, setAuthorization] = useState(false);
+
+  function updateInfo() {
+    if (authorization) {
+      setUpdate(!update);
+      setAuthorization(false);
+      return;
+    }
+  }
+
+  useEffect(() => {
+    async function loadPerson() {
+      const response = await api.get('/vintageroleplay/1', {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+          username: `${localStorage.getItem('username-vintage-studio')}`,
+        },
+      });
+
+      if (response.data.error === '3') return setUserExist(false);
+      else if (response.data.error === '14') {
+        localStorage.removeItem('nameperson-vintage-studio');
+        localStorage.removeItem('surnameperson-vintage-studio');
+        localStorage.removeItem('login-vintage-studio');
+
+        setUserExist(false);
+        return;
+      } else if (response.data.error === '15') return;
+
+      localStorage.setItem('nameperson-vintage-studio', response.data.name);
+      localStorage.setItem(
+        'surnameperson-vintage-studio',
+        response.data.surname
+      );
+      localStorage.setItem('login-vintage-studio', response.data.login);
+      setUserExist(true);
+
+      return;
+    }
+
+    setInterval(() => {
+      setAuthorization(true);
+    }, 10000);
+
+    loadPerson();
+  }, [update]);
+
   return (
     <>
       <Navbar />
@@ -70,14 +122,7 @@ function Dashboard(props: any) {
           </New>
         </LeftContent>
         <RightContent>
-          {`${localStorage.getItem('nameperson-vintage-studio')}` ? (
-            ''
-          ) : (
-            <ButtonCreatePerson>
-              <FaPlusSquare />
-              &nbsp;Novo Personagem
-            </ButtonCreatePerson>
-          )}
+          {userExist ? '' : <ButtonCreatePerson />}
 
           <UserInfos>
             <UserInfo>
@@ -98,15 +143,13 @@ function Dashboard(props: any) {
 
           <UserPersonInfo>
             Meus Personagem
-            {`${localStorage.getItem('nameperson-vintage-studio')}` === '' ? (
-              <UserPersonName>Nenhum personagem criado</UserPersonName>
-            ) : (
+            {userExist ? (
               <>
                 <UserPersonName>
                   {`${localStorage.getItem('nameperson-vintage-studio')}`}{' '}
                   {`${localStorage.getItem('surnameperson-vintage-studio')}`}
                 </UserPersonName>
-                {`${localStorage.getItem('login-vintage-studio')}` === '1' ? (
+                {localStorage.getItem('login-vintage-studio') === '1' ? (
                   <>
                     <UserPersonStatus color="green">
                       <FaCircle size={12} />
@@ -121,6 +164,19 @@ function Dashboard(props: any) {
                     </UserPersonStatus>
                   </>
                 )}
+                <IrUCP to="/ucp">Ver personagem</IrUCP>
+              </>
+            ) : (
+              <>
+                <UserPersonName>Nenhum personagem criado</UserPersonName>
+                <Button
+                  mt={1}
+                  onClick={() => updateInfo()}
+                  colorScheme="blue"
+                  size="sm"
+                >
+                  Atualizar
+                </Button>
               </>
             )}
           </UserPersonInfo>

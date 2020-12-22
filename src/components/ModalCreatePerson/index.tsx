@@ -45,16 +45,20 @@ function ModalCreatePerson(props: any) {
   useEffect(() => {
     async function infoPerson() {
       try {
-        const response = await api.get(`/vintageroleplay/${username}`, {
+        const response = await api.get('/vintageroleplay/1', {
           headers: {
             Authorization: `Bearer ${getToken()}`,
-            username: username,
+            username: `${localStorage.getItem('username-vintage-studio')}`,
           },
         });
 
         if (response.data.error === '3') return;
-        else if (response.data.error === '14') return;
-        else if (response.data.error === '15') return;
+        else if (response.data.error === '14') {
+          localStorage.removeItem('nameperson-vintage-studio');
+          localStorage.removeItem('surnameperson-vintage-studio');
+          localStorage.removeItem('login-vintage-studio');
+          return;
+        } else if (response.data.error === '15') return;
 
         localStorage.setItem('nameperson-vintage-studio', response.data.name);
         localStorage.setItem(

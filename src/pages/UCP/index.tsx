@@ -75,6 +75,9 @@ function UCP(props: any) {
   }
 
   useEffect(() => {
+    if (!localStorage.getItem('login-vintage-studio')) {
+      return props.history.push('/');
+    }
     async function getInfoPerson() {
       try {
         const response = await api.get('/vintageroleplay/1', {
@@ -197,10 +200,10 @@ function UCP(props: any) {
           </Person>
         </Left>
         <Right>
-          {`${localStorage.getItem('nameperson-vintage-studio')}` ? (
-            ''
-          ) : (
+          {`${localStorage.getItem('nameperson-vintage-studio')}` === null ? (
             <ButtonCreatePerson />
+          ) : (
+            ''
           )}
           <Tabs variant="enclosed" size="lg" isFitted>
             <TabList>
