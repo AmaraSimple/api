@@ -12,6 +12,7 @@ const logout = () => {
   localStorage.removeItem('nameperson-vintage-studio');
   localStorage.removeItem('surnameperson-vintage-studio');
   localStorage.removeItem('login-vintage-studio');
+  localStorage.removeItem('idperson-vintage-studio');
   return localStorage.removeItem(TOKEN_KEY);
 };
 

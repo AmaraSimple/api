@@ -42,6 +42,8 @@ import Navbar from '../../components/Navbar';
 import api from '../../api';
 import { getToken } from '../../auth';
 import ButtonCreatePerson from '../../components/ModalCreatePerson';
+import PersonChangePassword from '../../components/Person/ChangePassword';
+import PersonDelete from '../../components/Person/Delete';
 
 function UCP(props: any) {
   const [person, setPerson] = useState({
@@ -88,7 +90,7 @@ function UCP(props: any) {
         });
 
         setPerson(response.data);
-
+        localStorage.setItem('idperson-vintage-studio', response.data.id);
         return;
       } catch (e) {}
     }
@@ -208,19 +210,11 @@ function UCP(props: any) {
           <Tabs variant="enclosed" size="lg" isFitted>
             <TabList>
               <Tab color="teal">Mudar Senha</Tab>
-              <Tab color="teal">Loja</Tab>
-              <Tab color="teal">Exclusão de Conta</Tab>
             </TabList>
 
             <TabPanels>
               <TabPanel>
-                <p>one!</p>
-              </TabPanel>
-              <TabPanel>
-                <p>two!</p>
-              </TabPanel>
-              <TabPanel>
-                <p>three!</p>
+                <PersonChangePassword />
               </TabPanel>
             </TabPanels>
           </Tabs>
