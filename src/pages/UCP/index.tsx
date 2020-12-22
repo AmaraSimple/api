@@ -16,7 +16,15 @@ import {
   MoneyCoins,
   ReadySyncUpdateData,
 } from './styled';
-import { Progress, Spinner, Avatar } from '@chakra-ui/react';
+import {
+  Progress,
+  Spinner,
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+} from '@chakra-ui/react';
 import {
   FaCircle,
   FaHeart,
@@ -30,10 +38,12 @@ import {
   FaCreditCard,
   FaCoins,
 } from 'react-icons/fa';
-
 import Navbar from '../../components/Navbar';
 import api from '../../api';
 import { getToken } from '../../auth';
+import ButtonCreatePerson from '../../components/ModalCreatePerson';
+import PersonChangePassword from '../../components/Person/ChangePassword';
+import PersonDelete from '../../components/Person/Delete';
 
 function UCP(props: any) {
   const [person, setPerson] = useState({
@@ -50,17 +60,26 @@ function UCP(props: any) {
     name: '',
     surname: '',
   });
-  const [update, setUpdate] = useState(true);
 
   function ReturnDataInterval() {
-    setInterval(() => {
-      return setUpdate(!update);
+    setInterval(async () => {
+      const response = await api.get('/vintageroleplay/1', {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+          username: `${localStorage.getItem('username-vintage-studio')}`,
+        },
+      });
+
+      setPerson(response.data);
+
+      return;
     }, 120000);
   }
 
-  ReturnDataInterval();
-
   useEffect(() => {
+    if (!localStorage.getItem('login-vintage-studio')) {
+      return props.history.push('/');
+    }
     async function getInfoPerson() {
       try {
         const response = await api.get('/vintageroleplay/1', {
@@ -71,13 +90,13 @@ function UCP(props: any) {
         });
 
         setPerson(response.data);
-
+        localStorage.setItem('idperson-vintage-studio', response.data.id);
         return;
       } catch (e) {}
     }
-
+    ReturnDataInterval();
     getInfoPerson();
-  }, [update]);
+  }, []);
 
   return (
     <>
@@ -182,7 +201,24 @@ function UCP(props: any) {
             </ReadySyncUpdateData>
           </Person>
         </Left>
-        <Right></Right>
+        <Right>
+          {`${localStorage.getItem('nameperson-vintage-studio')}` === null ? (
+            <ButtonCreatePerson />
+          ) : (
+            ''
+          )}
+          <Tabs variant="enclosed" size="lg" isFitted>
+            <TabList>
+              <Tab color="teal">Mudar Senha</Tab>
+            </TabList>
+
+            <TabPanels>
+              <TabPanel>
+                <PersonChangePassword />
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
+        </Right>
       </Container>
     </>
   );

@@ -85,7 +85,7 @@ function Sidebar() {
 
               <SideItem visible={auth === true ? false : true}>
                 <FaUserAstronaut /> &nbsp;
-                <SideLink to="/dashboard">UCP</SideLink>
+                <SideLink to="/ucp">UCP</SideLink>
               </SideItem>
 
               <SideItem visible={auth}>

@@ -9,6 +9,10 @@ const logout = () => {
   localStorage.removeItem('email-vintage-studio');
   localStorage.removeItem('photo-vintage-studio');
   localStorage.removeItem('name-vintage-studio');
+  localStorage.removeItem('nameperson-vintage-studio');
+  localStorage.removeItem('surnameperson-vintage-studio');
+  localStorage.removeItem('login-vintage-studio');
+  localStorage.removeItem('idperson-vintage-studio');
   return localStorage.removeItem(TOKEN_KEY);
 };
 

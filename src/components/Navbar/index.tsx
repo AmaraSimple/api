@@ -56,7 +56,15 @@ function Navbar() {
           <NavLink to="/dashboard">DASHBOARD</NavLink>
         </NavItem>
 
-        <NavItem visible={auth === true ? false : true}>
+        <NavItem
+          visible={
+            auth === true
+              ? !localStorage.getItem('login-vintage-studio')
+                ? true
+                : false
+              : true
+          }
+        >
           <FaUserAstronaut />
           &nbsp;
           <NavLink to="/ucp">UCP</NavLink>

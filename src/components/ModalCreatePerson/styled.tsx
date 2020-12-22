@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   width: 100%;
@@ -188,16 +187,6 @@ const NewMsg = styled.p`
   padding: 15px;
 `;
 
-const IrUCP = styled(Link)`
-  font-size: 11pt;
-  font-weight: 100;
-  color: #c9c5c5;
-
-  &:hover {
-    color: #333;
-  }
-`;
-
 export {
   Container,
   ButtonStyled,
@@ -223,5 +212,4 @@ export {
   Copyright,
   UserUsername,
   UserNames,
-  IrUCP,
 };
